@@ -19,7 +19,10 @@ git config --local user.email <your_email>
 ## Test
 
 ```
-./gradlew build test --tests "demo.example.app.producer.HelloProducerTest.testSendMsg"
+./gradlew build test --tests "demo.example.app.producer.*"
+
+# specific test
+# ./gradlew build test --tests "demo.example.app.producer.HelloProducerTest.testSendMsg"
 ```
 
 ## Run
