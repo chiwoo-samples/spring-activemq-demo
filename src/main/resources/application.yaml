@@ -1,0 +1,30 @@
+# debug: true
+
+spring:
+  application:
+    name: activemq-demo
+  activemq:
+    broker-url: "tcp://localhost:61616"
+    user: admin
+    password: admin
+    send-timeout: 0ms
+    close-timeout: 15s
+    pool:
+      idle-timeout: 30s
+      max-sessions-per-connection: 500
+      use-anonymous-producers: true
+      max-connections: 10
+      block-if-full: true
+  jms:
+    listener:
+      auto-startup: true
+      max-concurrency: 4
+      acknowledge-mode: auto
+    template:
+      default-destination: "queue.HELLO"
+      delivery-mode: non_persistent
+      qos-enabled: true
+      priority: 100
+      receive-timeout: 5000
+      time-to-live: 36000
+    pub-sub-domain: false
