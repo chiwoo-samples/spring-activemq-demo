@@ -1,4 +1,4 @@
-# debug: true
+debug: false
 
 spring:
   application:
@@ -10,12 +10,16 @@ spring:
     send-timeout: 0ms
     close-timeout: 15s
     pool:
+      enabled: true
       idle-timeout: 30s
       max-sessions-per-connection: 500
       use-anonymous-producers: true
       max-connections: 10
       block-if-full: true
+      maximum-re-deliveries: 2
   jms:
+    cache:
+      enabled: false
     listener:
       auto-startup: true
       max-concurrency: 4
@@ -28,3 +32,6 @@ spring:
       receive-timeout: 5000
       time-to-live: 36000
     pub-sub-domain: false
+
+collector:
+  queue-name: LUKE_QUEUE_CONSUMER
